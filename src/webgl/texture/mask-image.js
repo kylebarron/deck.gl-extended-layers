@@ -20,8 +20,8 @@ export default {
   getUniforms,
   inject: {
     'fs:DECKGL_MUTATE_COLOR': `
-    float alpha = float(texture2D(bitmapTexture_mask, coord).a);
-    image = vec4(image.rgb, alpha);
+    float mask = float(texture2D(bitmapTexture_mask, coord).a);
+    image = vec4(image.rgb, image.a * mask);
     `,
   },
 };
